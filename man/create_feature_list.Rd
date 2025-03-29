@@ -45,8 +45,8 @@ input files are cut to zero.}
 \item{recursive}{A logical value indicating whether to search subdirectories of \code{spp_file_dir}
 for raster files. Default is FALSE.}
 
-\item{spp_file_pattern}{A regular expression pattern used to filter the raster files.
-Defaults to \code{".+\\\\.(tif|img)$"}, matching \code{.tif} and \code{.img} files.}
+\item{spp_file_pattern}{A regular expression pattern used to filter the raster files
+matching \code{.tif} and \code{.img} files.}
 }
 \value{
 A text file containing a feature list of rasters along with any additional attributes
@@ -59,8 +59,10 @@ adding optional attributes to the list based on user-defined parameters. The res
 feature list is written to a text file.
 }
 \examples{
+\dontrun{
 create_feature_list(spp_file_dir = "path/to/raster/files",
                     output_dir = "path/to/output",
                     weight = c(0.1, 0.2, 0.3),
                     threshold = 0.5)
+}
 }
