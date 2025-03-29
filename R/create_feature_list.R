@@ -1,3 +1,36 @@
+#' Create a Feature List from Raster Files
+#'
+#' This function generates a feature list from raster files in a specified directory,
+#' adding optional attributes to the list based on user-defined parameters. The resulting
+#' feature list is written to a text file.
+#'
+#' @param filename A character string specifying the name of the output file.
+#'                 The file will have a `.txt` extension if not provided.
+#' @param output_dir A character string specifying the output directory where the
+#'                   feature list file should be saved. If NULL, the file will be saved
+#'                   in the current working directory.
+#' @param weight An optional numeric vector (`float`) to assign weights to the features in the list.
+#' @param wgrp An optional integer vector (`int`) specifying a weight group number.
+#' @param condition An optional integer vector (`int`) representing the condition transform number
+#'                  associated with the rasters.
+#' @param group An optional integer vector (`int`) representing the output group number for each raster.
+#' @param retention An optional integer vector (`int`) representing the retention transform number for each raster.
+#' @param threshold An optional numeric vector (`float`) representing the threshold value below which
+#'                  input files are cut to zero.
+#' @param spp_file_dir A character string specifying the directory containing the raster files.
+#' @param spp_file_pattern A regular expression pattern used to filter the raster files
+#'                  matching `.tif` and `.img` files.
+#'
+#' @returns A text file containing a feature list of rasters along with any additional attributes
+#'          specified by the user. The file is saved to the location specified by `filename`
+#'          in `output_dir`.
+#' @export
+#'
+#' @examples
+#' create_feature_list(spp_file_dir = "path/to/raster/files",
+#'                     output_dir = "path/to/output",
+#'                     weight = c(0.1, 0.2, 0.3),
+#'                     threshold = 0.5)
 create_feature_list <- function(filename = "feature_list.txt",
                                 output_dir = NULL,  # New parameter for specifying the folder
                                 weight = NULL,
