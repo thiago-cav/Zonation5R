@@ -1,5 +1,5 @@
 Package: Zonation5R
-Title: What the Package Does (One Line, Title Case)
+Title: A toolkit for integrating and executing Zonation 5 software directly from R.
 Version: 0.0.0.9000
 Authors@R: 
     person("Thiago", "Cavalcante", , "thiagocav.ferreira@gmail.com", role = c("aut", "cre"),
