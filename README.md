@@ -10,10 +10,10 @@ Zonation5R
 
 ## Overview
 
-*Zonation5R* is an R package that provides an interface to seamlessly
+*Zonation5R* is an R package that provides an interface to easily
 integrate and execute Zonation 5 software directly from R. It enables
-efficient spatial prioritization and conservation planning workflows
-with enhanced reproducibility and automation.
+efficient spatial prioritization workflows with enhanced reproducibility
+and automation.
 
 ## Installation
 
@@ -43,8 +43,6 @@ users to include optional attributes based on their requirements.
 
 ``` r
 # Example usage of the create_feature_list function
-
-# This example won't be executed during knitting
 create_feature_list(spp_file_dir = "path/to/raster/files",
                     output_dir = "path/to/output",
                     weight = c(0.1, 0.2, 0.3),
