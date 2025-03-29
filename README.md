@@ -1,26 +1,23 @@
 Zonation5R
 ================
 
-- [Zonation5R](#zonation5r)
-  - [Overview](#overview)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Contributing](#contributing)
-  - [License](#license)
-  - [Author](#author)
-
-# Zonation5R
+- [Overview](#overview)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Author](#author)
 
 ## Overview
 
-**Zonation5R** is an R package that provides an interface to seamlessly
+*Zonation5R* is an R package that provides an interface to seamlessly
 integrate and execute Zonation 5 software directly from R. It enables
 efficient spatial prioritization and conservation planning workflows
 with enhanced reproducibility and automation.
 
 ## Installation
 
-You can install the development version of **Zonation5R** from GitHub
+You can install the development version of *Zonation5R* from GitHub
 using:
 
 ``` r

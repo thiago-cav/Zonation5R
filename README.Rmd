@@ -6,16 +6,13 @@ output:
     toc_depth: 2
 ---
 
-# Zonation5R
-
-
 ## Overview
 
-**Zonation5R** is an R package that provides an interface to seamlessly integrate and execute Zonation 5 software directly from R. It enables efficient spatial prioritization and conservation planning workflows with enhanced reproducibility and automation.
+*Zonation5R* is an R package that provides an interface to seamlessly integrate and execute Zonation 5 software directly from R. It enables efficient spatial prioritization and conservation planning workflows with enhanced reproducibility and automation.
 
 ## Installation
 
-You can install the development version of **Zonation5R** from GitHub using:
+You can install the development version of *Zonation5R* from GitHub using:
 
 ```{r}
 # install.packages("remotes")
