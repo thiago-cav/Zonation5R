@@ -4,7 +4,7 @@
 #' the input data and analysis configuration. The resulting settings
 #' file is saved with a `.z5` extension and can be used directly in the Zonation 5 software.
 #'
-#' @param file_name A character string specifying the name and/or location of the output settings file.
+#' @param filename A character string specifying the name and/or location of the output settings file.
 #'                  The file will have a `.z5` extension if not provided.
 #' @param output_dir A character string specifying the output directory where the
 #'                   feature list file should be saved. If NULL, the file will be saved
@@ -26,10 +26,10 @@
 #'
 #' @examples
 #' \dontrun{
-#' create_settings_file(file_name = "settings.z5",
+#' create_settings_file(filename = "settings",
 #'                      feature_list_file = "path/to/feature_list.txt")
 #' }
-create_settings_file <- function(file_name,
+create_settings_file <- function(filename,
                                  output_dir = NULL,
                                  zero_mode = NULL,
                                  feature_list_file = NULL,

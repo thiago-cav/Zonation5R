@@ -11,7 +11,7 @@ create_zonation5_call(
   marginal_loss_mode,
   gui_activated = FALSE,
   settings_file,
-  command_file = "command_file",
+  filename = "command_file",
   output_dir = "output",
   results_directory = "output"
 )
@@ -31,7 +31,7 @@ is launched when running the command file. The default is FALSE (GUI not activat
 
 \item{settings_file}{Path to the settings file.}
 
-\item{command_file}{Parameter to set the name of the command file.}
+\item{filename}{Parameter to set the name of the command file.}
 
 \item{output_dir}{A character string specifying the output directory where the
 feature list file should be saved. If NULL, the file will be saved

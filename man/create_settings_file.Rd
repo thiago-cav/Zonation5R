@@ -5,7 +5,7 @@
 \title{Create a Settings File for Zonation 5 Analysis}
 \usage{
 create_settings_file(
-  file_name,
+  filename,
   output_dir = NULL,
   zero_mode = NULL,
   feature_list_file = NULL,
@@ -19,7 +19,7 @@ create_settings_file(
 )
 }
 \arguments{
-\item{file_name}{A character string specifying the name and/or location of the output settings file.
+\item{filename}{A character string specifying the name and/or location of the output settings file.
 The file will have a \code{.z5} extension if not provided.}
 
 \item{output_dir}{A character string specifying the output directory where the
@@ -55,7 +55,7 @@ file is saved with a \code{.z5} extension and can be used directly in the Zonati
 }
 \examples{
 \dontrun{
-create_settings_file(file_name = "settings.z5",
+create_settings_file(filename = "settings",
                      feature_list_file = "path/to/feature_list.txt")
 }
 }

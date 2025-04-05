@@ -12,7 +12,7 @@
 #' @param gui_activated This parameter controls whether the Graphical User Interface (GUI)
 #'      is launched when running the command file. The default is FALSE (GUI not activated).
 #' @param settings_file Path to the settings file.
-#' @param command_file Parameter to set the name of the command file.
+#' @param filename Parameter to set the name of the command file.
 #' @param output_dir A character string specifying the output directory where the
 #'                   feature list file should be saved. If NULL, the file will be saved
 #'                   in the current working directory.
@@ -38,7 +38,7 @@ create_zonation5_call <- function(os = "Windows",
                                   marginal_loss_mode,
                                   gui_activated = FALSE,
                                   settings_file,
-                                  command_file = "command_file",
+                                  filename = "command_file",
                                   output_dir = "output",
                                   results_directory = "output") {
 
@@ -54,10 +54,10 @@ create_zonation5_call <- function(os = "Windows",
   }
 
   # Ensure the output command file has the correct extension
-  if (os == "Windows" && !grepl("\\.cmd$", command_file)) {
-    command_file <- paste0(command_file, ".cmd")
-  } else if (os == "Linux" && !grepl("\\.sh$", command_file)) {
-    command_file <- paste0(command_file, ".sh")
+  if (os == "Windows" && !grepl("\\.cmd$", filename)) {
+    filename <- paste0(filename, ".cmd")
+  } else if (os == "Linux" && !grepl("\\.sh$", filename)) {
+    filename <- paste0(filename, ".sh")
   }
 
   # Build the command template
@@ -90,13 +90,13 @@ create_zonation5_call <- function(os = "Windows",
   command_template <- paste0(command_template, " ", settings_file, " ", results_directory)
 
   # Write command to file
-  command_file_path <- file.path(output_dir, command_file)  # Saving command file in output directory
-  writeLines(command_template, command_file_path)
+  filename_path <- file.path(output_dir, filename)  # Saving command file in output directory
+  writeLines(command_template, filename_path)
 
   # Set executable permission on Linux
   if (os == "Linux") {
-    Sys.chmod(command_file_path, mode = "0755")
+    Sys.chmod(filename_path, mode = "0755")
   }
 
-  message("Command file created: ", command_file_path)
+  message("Command file created: ", filename_path)
 }
