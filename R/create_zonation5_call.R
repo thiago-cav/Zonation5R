@@ -34,8 +34,10 @@ create_zonation5_call <- function(os = "Windows",
                                   marginal_loss_mode,      # Required parameter
                                   gui_activated = FALSE,
                                   settings_file,           # Required parameter
-                                  command_file = "command_file.cmd",
                                   results_directory = "output") {  # Directory for analysis results
+
+  # Set the command_file parameter to a fixed value
+  command_file <- "command_file.cmd"  # or "command_file.sh" based on the OS
 
   # Validate required parameters
   if (missing(zonation_path)) {
@@ -48,7 +50,7 @@ create_zonation5_call <- function(os = "Windows",
     stop("Error: 'settings_file' must be provided.")
   }
 
-  # Ensure the output command file has the correct extension
+  # Ensure the output command file has the correct extension based on OS
   if (os == "Windows" && !grepl("\\.cmd$", command_file)) {
     command_file <- paste0(command_file, ".cmd")
   } else if (os == "Linux" && !grepl("\\.sh$", command_file)) {
@@ -94,4 +96,3 @@ create_zonation5_call <- function(os = "Windows",
 
   message("Command file created: ", command_file)
 }
-

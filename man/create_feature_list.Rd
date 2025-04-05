@@ -6,7 +6,6 @@
 \usage{
 create_feature_list(
   filename = "feature_list.txt",
-  output_dir = NULL,
   weight = NULL,
   wgrp = NULL,
   condition = NULL,
@@ -21,10 +20,6 @@ create_feature_list(
 \arguments{
 \item{filename}{A character string specifying the name of the output file.
 The file will have a \code{.txt} extension if not provided.}
-
-\item{output_dir}{A character string specifying the output directory where the
-feature list file should be saved. If NULL, the file will be saved
-in the current working directory.}
 
 \item{weight}{An optional numeric vector (\code{float}) to assign weights to the features in the list.}
 
@@ -50,8 +45,7 @@ matching \code{.tif} and \code{.img} files.}
 }
 \value{
 A text file containing a feature list of rasters along with any additional attributes
-specified by the user. The file is saved to the location specified by \code{filename}
-in \code{output_dir}.
+specified by the user.
 }
 \description{
 This function generates a feature list from raster files in a specified directory,
