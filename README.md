@@ -1,33 +1,26 @@
 Zonation5R
 ================
 
-- [Overview](#overview)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Author](#author)
-
-## Overview
+[![License: GPL
+v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 *Zonation5R* is an R package that provides an interface to easily
 integrate and execute Zonation 5 software directly from R. It enables
 efficient spatial prioritization workflows with enhanced reproducibility
-and automation.
+and automation. The package was also developed to support teaching and
+learning, making it easier for R users to get started with Zonation 5
+and learn spatial prioritization techniques.
 
 ## Installation
 
-You can install the development version of *Zonation5R* from GitHub
-using:
+You can install the development version from GitHub using:
 
 ``` r
 # install.packages("remotes")
 # remotes::install_github("thiago-cav/Zonation5R")
 ```
 
-## Usage
-
-Once installed, you can load the package and start using it as follows:
+### Usage
 
 ``` r
 library(Zonation5R)
@@ -49,20 +42,22 @@ create_feature_list(spp_file_dir = "path/to/raster/files",
                     threshold = 0.5)
 ```
 
-## Contributing
+## Development Notes
 
-Contributions are welcome! Please submit issues and pull requests via
-[GitHub](https://github.com/thiago-cav/Zonation5R/issues).
-
-## License
-
-[![License:
-MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
-This package is licensed under the MIT License. See the
-[LICENSE](LICENSE) file for details.
+This package was developed to facilitate the integration of Zonation 5
+with R, supporting spatial prioritization workflows, teaching, and
+learning. While it is functional and designed to be as useful as
+possible, I want to clarify that I am not a professional software
+developer. As such, the development of this package involved many trials
+and errors, and I’ve greatly benefited from the guidance in [*R Packages
+(2e)*](https://r-pkgs.org/) by Hadley Wickham and Jennifer Bryan, which
+provides an excellent foundation for the task. As the authors highlight,
+*“It doesn’t matter if your first version isn’t perfect as long as the
+next version is better.”* If you encounter any issues or have
+suggestions for enhancement, feel free to reach out or contribute.
 
 ## Author
 
 Thiago Cavalcante  
 ORCID: [0000-0001-5357-9659](https://orcid.org/0000-0001-5357-9659)  
-Email: <thiagocav.ferreira@gmail.com>, <thiago.cavalcante@helsinki.fi>
+Email: <thiago.cavalcante@helsinki.fi>
