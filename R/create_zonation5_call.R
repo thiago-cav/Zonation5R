@@ -53,6 +53,17 @@ create_zonation5_call <- function(os = "Windows",
     stop("Error: 'settings_file' must be provided.")
   }
 
+  # Handle output directory: use current working directory if NULL
+  if (!is.null(output_dir)) {
+    # Ensure the directory exists
+    if (!dir.exists(output_dir)) {
+      dir.create(output_dir, recursive = TRUE)
+    }
+    filename <- file.path(output_dir, filename)
+  } else {
+    filename <- file.path(getwd(), filename)  # Default to current working directory
+  }
+
   # Ensure the output command file has the correct extension
   if (os == "Windows" && !grepl("\\.cmd$", filename)) {
     filename <- paste0(filename, ".cmd")

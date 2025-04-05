@@ -46,7 +46,7 @@ This is a compulsory parameter.}
 \item{retention_link_file}{A character string specifying the full path and/or name of the retention link file.}
 }
 \value{
-A \code{.z5} file containing the specified settings, saved to the location specified by \code{file_name}.
+A \code{.z5} file containing the specified settings, saved to the location specified by \code{filename}.
 }
 \description{
 This function generates a settings file with various parameters related to
