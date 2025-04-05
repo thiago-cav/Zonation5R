@@ -2,4 +2,5 @@
 
 export(create_feature_list)
 export(create_settings_file)
+export(create_zonation5_call)
 importFrom(utils,write.table)
