@@ -12,8 +12,11 @@
 #' @param gui_activated This parameter controls whether the Graphical User Interface (GUI)
 #'      is launched when running the command file. The default is FALSE (GUI not activated).
 #' @param settings_file Path to the settings file.
-#' @param output_directory Output directory for results.
-#' @param command_file Path and/or name to save the command file.
+#' @param command_file Parameter to set the name of the command file.
+#' @param output_dir A character string specifying the output directory where the
+#'                   feature list file should be saved. If NULL, the file will be saved
+#'                   in the current working directory.
+#' @param results_directory Directory for analysis results
 #'
 #' @return The Zonation 5 command file.
 #'
@@ -30,13 +33,14 @@
 #' }
 #' @export
 create_zonation5_call <- function(os = "Windows",
-                                  zonation_path,           # Required parameter
+                                  zonation_path,
                                   flags = "",
-                                  marginal_loss_mode,      # Required parameter
+                                  marginal_loss_mode,
                                   gui_activated = FALSE,
-                                  settings_file,           # Required parameter
-                                  output_directory = "output",
-                                  command_file = "command_file") {
+                                  settings_file,
+                                  command_file = "command_file",
+                                  output_dir = "output",
+                                  results_directory = "output") {
 
   # Validate required parameters
   if (missing(zonation_path)) {
@@ -82,16 +86,17 @@ create_zonation5_call <- function(os = "Windows",
     command_template <- paste0(command_template, " --gui")
   }
 
-  # Add settings file and output directory
-  command_template <- paste0(command_template, " ", settings_file, " ", output_directory)
+  # Add settings file and results directory (for analysis results)
+  command_template <- paste0(command_template, " ", settings_file, " ", results_directory)
 
   # Write command to file
-  writeLines(command_template, command_file)
+  command_file_path <- file.path(output_dir, command_file)  # Saving command file in output directory
+  writeLines(command_template, command_file_path)
 
   # Set executable permission on Linux
   if (os == "Linux") {
-    Sys.chmod(command_file, mode = "0755")
+    Sys.chmod(command_file_path, mode = "0755")
   }
 
-  message("Command file created: ", command_file)
+  message("Command file created: ", command_file_path)
 }

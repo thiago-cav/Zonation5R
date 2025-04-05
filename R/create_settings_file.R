@@ -6,6 +6,9 @@
 #'
 #' @param file_name A character string specifying the name and/or location of the output settings file.
 #'                  The file will have a `.z5` extension if not provided.
+#' @param output_dir A character string specifying the output directory where the
+#'                   feature list file should be saved. If NULL, the file will be saved
+#'                   in the current working directory.
 #' @param zero_mode Optional. A character string specifying the zero mode parameter for Zonation.
 #' @param feature_list_file A character string specifying the full path and/or name of the feature list file.
 #'                  This is a compulsory parameter.
@@ -27,6 +30,7 @@
 #'                      feature_list_file = "path/to/feature_list.txt")
 #' }
 create_settings_file <- function(file_name,
+                                 output_dir = NULL,
                                  zero_mode = NULL,
                                  feature_list_file = NULL,
                                  external_solution_file = NULL,
@@ -40,6 +44,17 @@ create_settings_file <- function(file_name,
   # Ensure the file_name has a .z5 extension
   if (!grepl("\\.z5$", file_name, ignore.case = TRUE)) {
     file_name <- paste0(file_name, ".z5")
+  }
+
+  # Handle output directory: use current working directory if NULL
+  if (!is.null(output_dir)) {
+    # Ensure the directory exists
+    if (!dir.exists(output_dir)) {
+      dir.create(output_dir, recursive = TRUE)
+    }
+    filename <- file.path(output_dir, filename)
+  } else {
+    filename <- file.path(getwd(), filename)  # Default to current working directory
   }
 
   # Check if the feature_list_file is provided

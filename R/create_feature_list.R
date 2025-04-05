@@ -76,13 +76,15 @@ create_feature_list <- function(filename = "feature_list.txt",
   # Ensure column headers are in quotes
   colnames(feature_list) <- paste0('"', colnames(feature_list), '"')
 
-  # Determine the full file path
+  # Handle output directory: use current working directory if NULL
   if (!is.null(output_dir)) {
     # Ensure the directory exists
     if (!dir.exists(output_dir)) {
       dir.create(output_dir, recursive = TRUE)
     }
     filename <- file.path(output_dir, filename)
+  } else {
+    filename <- file.path(getwd(), filename)  # Default to current working directory
   }
 
   # Write the feature list

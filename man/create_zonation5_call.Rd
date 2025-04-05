@@ -11,8 +11,9 @@ create_zonation5_call(
   marginal_loss_mode,
   gui_activated = FALSE,
   settings_file,
-  output_directory = "output",
-  command_file = "command_file"
+  command_file = "command_file",
+  output_dir = "output",
+  results_directory = "output"
 )
 }
 \arguments{
@@ -30,9 +31,13 @@ is launched when running the command file. The default is FALSE (GUI not activat
 
 \item{settings_file}{Path to the settings file.}
 
-\item{output_directory}{Output directory for results.}
+\item{command_file}{Parameter to set the name of the command file.}
 
-\item{command_file}{Path and/or name to save the command file.}
+\item{output_dir}{A character string specifying the output directory where the
+feature list file should be saved. If NULL, the file will be saved
+in the current working directory.}
+
+\item{results_directory}{Directory for analysis results}
 }
 \value{
 The Zonation 5 command file.

@@ -6,6 +6,7 @@
 \usage{
 create_settings_file(
   file_name,
+  output_dir = NULL,
   zero_mode = NULL,
   feature_list_file = NULL,
   external_solution_file = NULL,
@@ -20,6 +21,10 @@ create_settings_file(
 \arguments{
 \item{file_name}{A character string specifying the name and/or location of the output settings file.
 The file will have a \code{.z5} extension if not provided.}
+
+\item{output_dir}{A character string specifying the output directory where the
+feature list file should be saved. If NULL, the file will be saved
+in the current working directory.}
 
 \item{zero_mode}{Optional. A character string specifying the zero mode parameter for Zonation.}
 
