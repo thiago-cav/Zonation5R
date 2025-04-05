@@ -51,7 +51,6 @@ file is saved with a \code{.z5} extension and can be used directly in the Zonati
 \examples{
 \dontrun{
 create_settings_file(file_name = "settings.z5",
-                     feature_list_file = "path/to/feature_list.txt",#'
-                     analysis_area_mask_layer = "path/to/mask_layer.tif")
+                     feature_list_file = "path/to/feature_list.txt")
 }
 }
