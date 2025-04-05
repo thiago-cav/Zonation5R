@@ -6,16 +6,12 @@
 #'
 #' @param os Operating system. Default is "Windows".
 #' @param zonation_path The specification for the path where Zonation 5 is installed.
-#' @param flags Flags that control which analytical options are used. Used to include single letter codes
-#'              that switch analytical options on.
+#' @param flags Flags that control which analysis options are used. Used to include single letter codes
+#'              that switch analysis options on.
 #' @param marginal_loss_mode The marginal loss rule is specified using this parameter.
 #' @param gui_activated This parameter controls whether the Graphical User Interface (GUI)
 #'      is launched when running the command file. The default is FALSE (GUI not activated).
 #' @param settings_file Path to the settings file.
-#' @param filename Parameter to set the name of the command file.
-#' @param output_dir A character string specifying the output directory where the
-#'                   feature list file should be saved. If NULL, the file will be saved
-#'                   in the current working directory.
 #' @param results_directory Directory for analysis results
 #'
 #' @return The Zonation 5 command file.
@@ -33,14 +29,13 @@
 #' }
 #' @export
 create_zonation5_call <- function(os = "Windows",
-                                  zonation_path,
+                                  zonation_path,           # Required parameter
                                   flags = "",
-                                  marginal_loss_mode,
+                                  marginal_loss_mode,      # Required parameter
                                   gui_activated = FALSE,
-                                  settings_file,
-                                  filename = "command_file",
-                                  output_dir = "output",
-                                  results_directory = "output") {
+                                  settings_file,           # Required parameter
+                                  command_file = "command_file.cmd",
+                                  results_directory = "output") {  # Directory for analysis results
 
   # Validate required parameters
   if (missing(zonation_path)) {
@@ -53,22 +48,11 @@ create_zonation5_call <- function(os = "Windows",
     stop("Error: 'settings_file' must be provided.")
   }
 
-  # Handle output directory: use current working directory if NULL
-  if (!is.null(output_dir)) {
-    # Ensure the directory exists
-    if (!dir.exists(output_dir)) {
-      dir.create(output_dir, recursive = TRUE)
-    }
-    filename <- file.path(output_dir, filename)
-  } else {
-    filename <- file.path(getwd(), filename)  # Default to current working directory
-  }
-
   # Ensure the output command file has the correct extension
-  if (os == "Windows" && !grepl("\\.cmd$", filename)) {
-    filename <- paste0(filename, ".cmd")
-  } else if (os == "Linux" && !grepl("\\.sh$", filename)) {
-    filename <- paste0(filename, ".sh")
+  if (os == "Windows" && !grepl("\\.cmd$", command_file)) {
+    command_file <- paste0(command_file, ".cmd")
+  } else if (os == "Linux" && !grepl("\\.sh$", command_file)) {
+    command_file <- paste0(command_file, ".sh")
   }
 
   # Build the command template
@@ -101,13 +85,13 @@ create_zonation5_call <- function(os = "Windows",
   command_template <- paste0(command_template, " ", settings_file, " ", results_directory)
 
   # Write command to file
-  filename_path <- file.path(output_dir, filename)  # Saving command file in output directory
-  writeLines(command_template, filename_path)
+  writeLines(command_template, command_file)
 
   # Set executable permission on Linux
   if (os == "Linux") {
-    Sys.chmod(filename_path, mode = "0755")
+    Sys.chmod(command_file, mode = "0755")
   }
 
-  message("Command file created: ", filename_path)
+  message("Command file created: ", command_file)
 }
+

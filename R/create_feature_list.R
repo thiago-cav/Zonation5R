@@ -6,9 +6,6 @@
 #'
 #' @param filename A character string specifying the name of the output file.
 #'                 The file will have a `.txt` extension if not provided.
-#' @param output_dir A character string specifying the output directory where the
-#'                   feature list file should be saved. If NULL, the file will be saved
-#'                   in the current working directory.
 #' @param weight An optional numeric vector (`float`) to assign weights to the features in the list.
 #' @param wgrp An optional integer vector (`int`) specifying a weight group number.
 #' @param condition An optional integer vector (`int`) representing the condition transform number
@@ -24,8 +21,7 @@
 #'                  matching `.tif` and `.img` files.
 #'
 #' @returns A text file containing a feature list of rasters along with any additional attributes
-#'          specified by the user. The file is saved to the location specified by `filename`
-#'          in `output_dir`.
+#'          specified by the user.
 #'
 #' @importFrom utils write.table
 #'
@@ -36,7 +32,6 @@
 #' create_feature_list(spp_file_dir = "path/to/raster/files")
 #' }
 create_feature_list <- function(filename = "feature_list.txt",
-                                output_dir = NULL,  # New parameter for specifying the folder
                                 weight = NULL,
                                 wgrp = NULL,
                                 condition = NULL,
@@ -75,17 +70,6 @@ create_feature_list <- function(filename = "feature_list.txt",
 
   # Ensure column headers are in quotes
   colnames(feature_list) <- paste0('"', colnames(feature_list), '"')
-
-  # Handle output directory: use current working directory if NULL
-  if (!is.null(output_dir)) {
-    # Ensure the directory exists
-    if (!dir.exists(output_dir)) {
-      dir.create(output_dir, recursive = TRUE)
-    }
-    filename <- file.path(output_dir, filename)
-  } else {
-    filename <- file.path(getwd(), filename)  # Default to current working directory
-  }
 
   # Write the feature list
   write.table(feature_list, file = filename, row.names = FALSE, quote = FALSE, col.names = TRUE)
