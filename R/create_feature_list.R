@@ -33,10 +33,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' create_feature_list(spp_file_dir = "path/to/raster/files",
-#'                     output_dir = "path/to/output",
-#'                     weight = c(0.1, 0.2, 0.3),
-#'                     threshold = 0.5)
+#' create_feature_list(spp_file_dir = "path/to/raster/files")
 #' }
 create_feature_list <- function(filename = "feature_list.txt",
                                 output_dir = NULL,  # New parameter for specifying the folder

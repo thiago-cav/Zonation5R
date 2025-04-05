@@ -19,10 +19,9 @@
 #'
 #' @examples
 #' \dontrun{
-#' create_zonation5_call(os = "Windows",
-#'                       zonation_path = "C:/Program Files (x86)/Zonation5",
+#' create_zonation5_call(zonation_path = "C:/Program Files (x86)/Zonation5",
 #'                       marginal_loss_mode = "ABF",
-#'                       settings_file = "settings.txt")
+#'                       settings_file = "settings.z5")
 #'
 #' create_zonation5_call(os = "Linux",
 #'                       zonation_path = "/usr/local/zonation",
