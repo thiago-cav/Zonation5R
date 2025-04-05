@@ -20,7 +20,7 @@
 #' @param cost_layer A character string specifying the full path and/or name of the cost layer file.
 #' @param retention_link_file A character string specifying the full path and/or name of the retention link file.
 #'
-#' @returns A `.z5` file containing the specified settings, saved to the location specified by `file_name`.
+#' @returns A `.z5` file containing the specified settings, saved to the location specified by `filename`.
 #'
 #' @export
 #'
@@ -41,9 +41,9 @@ create_settings_file <- function(filename,
                                  cost_layer = NULL,
                                  retention_link_file = NULL) {
 
-  # Ensure the file_name has a .z5 extension
-  if (!grepl("\\.z5$", file_name, ignore.case = TRUE)) {
-    file_name <- paste0(file_name, ".z5")
+  # Ensure the filename has a .z5 extension
+  if (!grepl("\\.z5$", filename, ignore.case = TRUE)) {
+    filename <- paste0(filename, ".z5")
   }
 
   # Handle output directory: use current working directory if NULL
@@ -63,7 +63,7 @@ create_settings_file <- function(filename,
   }
 
   # Open a connection to the file
-  con <- file(file_name, open = "wt")
+  con <- file(filename, open = "wt")
 
   # Write zero_mode to the settings file
   if (!is.null(zero_mode)) {
@@ -100,6 +100,6 @@ create_settings_file <- function(filename,
   close(con)
 
   # Return a message
-  message("Settings file ", file_name, " has been created.")
+  message("Settings file ", filename, " has been created.")
 }
 
