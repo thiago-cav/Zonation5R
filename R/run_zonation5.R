@@ -5,6 +5,8 @@
 #'
 #' @param folder A character string specifying the path to the folder containing the `.cmd` file.
 #'
+#' @export
+#'
 #' @examples
 #' \dontrun{
 #' run_zonation5("C:/path/to/folder")
