@@ -17,7 +17,7 @@ You can install the development version of *Zonation5R* from
 [GitHub](https://github.com/thiago-cav/Zonation5R) with:
 
 ``` r
-install.packages("devtools")
+if (!require(devtools)) install.packages("devtools")
 devtools::install_github("thiago-cav/Zonation5R")
 ```
 
