@@ -5,22 +5,16 @@
 \title{Create a Feature List from Raster Files}
 \usage{
 create_feature_list(
-  filename = "feature_list.txt",
   weight = NULL,
   wgrp = NULL,
   condition = NULL,
   group = NULL,
   retention = NULL,
   threshold = NULL,
-  spp_file_dir,
-  recursive = FALSE,
-  spp_file_pattern = ".+\\\\.(tif|img)$"
+  spp_file_dir
 )
 }
 \arguments{
-\item{filename}{A character string specifying the name of the output file.
-The file will have a \code{.txt} extension if not provided.}
-
 \item{weight}{An optional numeric vector (\code{float}) to assign weights to the features in the list.}
 
 \item{wgrp}{An optional integer vector (\code{int}) specifying a weight group number.}
@@ -36,12 +30,6 @@ associated with the rasters.}
 input files are cut to zero.}
 
 \item{spp_file_dir}{A character string specifying the directory containing the raster files.}
-
-\item{recursive}{A logical value indicating whether to search subdirectories of \code{spp_file_dir}
-for raster files. Default is FALSE.}
-
-\item{spp_file_pattern}{A regular expression pattern used to filter the raster files
-matching \code{.tif} and \code{.img} files.}
 }
 \value{
 A text file containing a feature list of rasters along with any additional attributes

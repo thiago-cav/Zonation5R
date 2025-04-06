@@ -10,8 +10,7 @@ create_zonation5_call(
   flags = "",
   marginal_loss_mode,
   gui_activated = FALSE,
-  settings_file,
-  results_directory = "output"
+  settings_file
 )
 }
 \arguments{
@@ -27,26 +26,20 @@ that switch analysis options on.}
 \item{gui_activated}{This parameter controls whether the Graphical User Interface (GUI)
 is launched when running the command file. The default is FALSE (GUI not activated).}
 
-\item{settings_file}{Path to the settings file.}
-
-\item{results_directory}{Directory for analysis results}
+\item{settings_file}{A character string specifying the settings file.}
 }
 \value{
 The Zonation 5 command file.
 }
 \description{
-This function generates a command file to run Zonation 5. It is also used to specify the analysis options,
-settings, and output location. The file is saved with a \code{.cmd} (Windows) or \code{.sh} (Linux) suffix.
+This function generates a command file for running Zonation 5 and specifies
+the analysis options and related parameters. The file is saved with a \code{.cmd} (Windows) or \code{.sh} (Linux) suffix.
 }
 \examples{
 \dontrun{
 create_zonation5_call(zonation_path = "C:/Program Files (x86)/Zonation5",
                       marginal_loss_mode = "ABF",
-                      settings_file = "settings.z5")
+                      settings_file = "settings_file.z5")
 
-create_zonation5_call(os = "Linux",
-                      zonation_path = "/usr/local/zonation",
-                      marginal_loss_mode = "ABF",
-                      gui_activated = TRUE)
 }
 }

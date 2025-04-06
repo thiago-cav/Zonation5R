@@ -4,8 +4,7 @@
 #' adding optional attributes to the list based on user-defined parameters. The resulting
 #' feature list is written to a text file.
 #'
-#' @param filename A character string specifying the name of the output file.
-#'                 The file will have a `.txt` extension if not provided.
+#' @param spp_file_dir A character string specifying the directory containing the raster files.
 #' @param weight An optional numeric vector (`float`) to assign weights to the features in the list.
 #' @param wgrp An optional integer vector (`int`) specifying a weight group number.
 #' @param condition An optional integer vector (`int`) representing the condition transform number
@@ -14,11 +13,6 @@
 #' @param retention An optional integer vector (`int`) representing the retention transform number for each raster.
 #' @param threshold An optional numeric vector (`float`) representing the threshold value below which
 #'                  input files are cut to zero.
-#' @param spp_file_dir A character string specifying the directory containing the raster files.
-#' @param recursive A logical value indicating whether to search subdirectories of `spp_file_dir`
-#'                  for raster files. Default is FALSE.
-#' @param spp_file_pattern A regular expression pattern used to filter the raster files
-#'                  matching `.tif` and `.img` files.
 #'
 #' @returns A text file containing a feature list of rasters along with any additional attributes
 #'          specified by the user.
@@ -31,21 +25,18 @@
 #' \dontrun{
 #' create_feature_list(spp_file_dir = "path/to/raster/files")
 #' }
-create_feature_list <- function(filename = "feature_list.txt",
-                                weight = NULL,
+create_feature_list <- function(weight = NULL,
                                 wgrp = NULL,
                                 condition = NULL,
                                 group = NULL,
                                 retention = NULL,
                                 threshold = NULL,
-                                spp_file_dir,
-                                recursive = FALSE,
-                                spp_file_pattern = ".+\\.(tif|img)$") {
+                                spp_file_dir) {
 
-  # Ensure the filename has a .txt extension
-  if (!grepl("\\.txt$", filename, ignore.case = TRUE)) {
-    filename <- paste0(filename, ".txt")
-  }
+  # Hardcoded values
+  filename <- "feature_list.txt"
+  recursive <- FALSE
+  spp_file_pattern <- ".+\\.(tif|img)$"
 
   # List rasters in the target directory
   target_rasters <- list.files(path = spp_file_dir,

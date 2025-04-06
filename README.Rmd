@@ -31,19 +31,15 @@ The **feature list** file is one of the most basic files required to run Zonatio
 ```{r, eval=FALSE}
 # Example usage of the create_feature_list function
 create_feature_list(spp_file_dir = "path/to/raster/files",
-                    output_dir = "path/to/output",
                     weight = c(0.1, 0.2, 0.3),
                     threshold = 0.5)
 ```
 
-## Development Notes
-
-This package was developed to facilitate the integration of Zonation 5 with R, supporting spatial prioritization workflows, teaching, and learning. While it is functional and designed to be as useful as possible, I want to clarify that I am not a professional software developer. As such, the development of this package involved many trials and errors, and I’ve greatly benefited from the guidance in [*R Packages (2e)*](https://r-pkgs.org/) by Hadley Wickham and Jennifer Bryan, which provides an excellent foundation for the task. As the authors highlight, *"It doesn’t matter if your first version isn’t perfect as long as the next version is better."* If you encounter any issues or have suggestions for enhancement, feel free to reach out or contribute.
-
-
-## Author
+## Developers
 
 Thiago Cavalcante  
 ORCID: [0000-0001-5357-9659](https://orcid.org/0000-0001-5357-9659)  
 Email: thiago.cavalcante@helsinki.fi
 
+
+This package has been shaped by many trials and errors, and it is constantly being refined. As such, contributions, suggestions, and feedback are always welcome—after all, *"it doesn’t matter if your first version isn’t perfect as long as the next version is better"*.

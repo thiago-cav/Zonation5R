@@ -4,10 +4,8 @@
 #' the input data and analysis configuration. The resulting settings
 #' file is saved with a `.z5` extension and can be used directly in the Zonation 5 software.
 #'
-#' @param filename A character string specifying the name of the settings file.
-#'                  The file will have a `.z5` extension if not provided.
-#' @param zero_mode Optional. A character string specifying the zero mode parameter for Zonation.
-#' @param feature_list_file A character string specifying the full path and/or name of the feature list file.
+#' @param zero_mode A character string specifying the zero mode parameter for Zonation.
+#' @param feature_list_file A character string specifying the feature list file.
 #'                  This is a compulsory parameter.
 #' @param external_solution_file A character string specifying the full path and/or name of the external solution file.
 #' @param analysis_area_mask_layer A character string specifying the full path and/or name of the analysis area mask layer file.
@@ -17,17 +15,15 @@
 #' @param cost_layer A character string specifying the full path and/or name of the cost layer file.
 #' @param retention_link_file A character string specifying the full path and/or name of the retention link file.
 #'
-#' @returns A `.z5` file containing the specified settings, saved to the location specified by `filename`.
+#' @returns A `.z5` file containing the specified settings.
 #'
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' create_settings_file(filename = "settings",
-#'                      feature_list_file = "path/to/feature_list.txt")
+#' create_settings_file(feature_list_file = "feature_list.txt")
 #' }
-create_settings_file <- function(filename,
-                                 zero_mode = NULL,
+create_settings_file <- function(zero_mode = NULL,
                                  feature_list_file = NULL,
                                  external_solution_file = NULL,
                                  analysis_area_mask_layer = NULL,
@@ -37,10 +33,8 @@ create_settings_file <- function(filename,
                                  cost_layer = NULL,
                                  retention_link_file = NULL) {
 
-  # Ensure the filename has a .z5 extension
-  if (!grepl("\\.z5$", filename, ignore.case = TRUE)) {
-    filename <- paste0(filename, ".z5")
-  }
+  # Hardcoded filename
+  filename <- "settings_file.z5"
 
   # Check if the feature_list_file is provided
   if (missing(feature_list_file)) {
@@ -87,4 +81,3 @@ create_settings_file <- function(filename,
   # Return a message
   message("Settings file ", filename, " has been created.")
 }
-

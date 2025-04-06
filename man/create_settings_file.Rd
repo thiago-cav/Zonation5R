@@ -5,7 +5,6 @@
 \title{Create a Settings File for Zonation 5 Analysis}
 \usage{
 create_settings_file(
-  filename,
   zero_mode = NULL,
   feature_list_file = NULL,
   external_solution_file = NULL,
@@ -18,12 +17,9 @@ create_settings_file(
 )
 }
 \arguments{
-\item{filename}{A character string specifying the name of the settings file.
-The file will have a \code{.z5} extension if not provided.}
+\item{zero_mode}{A character string specifying the zero mode parameter for Zonation.}
 
-\item{zero_mode}{Optional. A character string specifying the zero mode parameter for Zonation.}
-
-\item{feature_list_file}{A character string specifying the full path and/or name of the feature list file.
+\item{feature_list_file}{A character string specifying the feature list file.
 This is a compulsory parameter.}
 
 \item{external_solution_file}{A character string specifying the full path and/or name of the external solution file.}
@@ -41,7 +37,7 @@ This is a compulsory parameter.}
 \item{retention_link_file}{A character string specifying the full path and/or name of the retention link file.}
 }
 \value{
-A \code{.z5} file containing the specified settings, saved to the location specified by \code{filename}.
+A \code{.z5} file containing the specified settings.
 }
 \description{
 This function generates a settings file with various parameters related to
@@ -50,7 +46,6 @@ file is saved with a \code{.z5} extension and can be used directly in the Zonati
 }
 \examples{
 \dontrun{
-create_settings_file(filename = "settings",
-                     feature_list_file = "path/to/feature_list.txt")
+create_settings_file(feature_list_file = "feature_list.txt")
 }
 }
