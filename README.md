@@ -13,11 +13,12 @@ and learn spatial prioritization techniques.
 
 ## Installation
 
-You can install the development version from GitHub using:
+You can install the development version of *Zonation5R* from
+[GitHub](https://github.com/thiago-cav/Zonation5R) with:
 
 ``` r
-# install.packages("remotes")
-# remotes::install_github("thiago-cav/Zonation5R")
+install.packages("devtools")
+devtools::install_github("thiago-cav/Zonation5R")
 ```
 
 ### Usage
