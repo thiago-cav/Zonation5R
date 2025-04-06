@@ -35,5 +35,5 @@ run_zonation5 <- function(folder) {
   system(selected_file)
 
   # Notify when analysis is finished
-  message("The analysis has been completed successfully.")
+  message("The analysis has been completed.")
 }
