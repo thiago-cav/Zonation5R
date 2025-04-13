@@ -1,7 +1,7 @@
 Zonation5R
 ================
 
-<a href="https://your-package-website.com">
+<a href="https://github.com/thiago-cav/Zonation5R">
 <img src="inst/images/Zonation5R_logo.png" align="right" width="200" height="200" alt="Zonation5R logo" />
 </a>
 
