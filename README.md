@@ -1,6 +1,10 @@
 Zonation5R
 ================
 
+<a href="https://your-package-website.com">
+<img src="inst/images/Zonation5R_logo.png" align="right" width="200" height="200" alt="Zonation5R logo" />
+</a>
+
 [![License: GPL
 v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
@@ -29,17 +33,83 @@ library(Zonation5R)
 
 ### Example
 
-The **feature list** file is one of the most basic files required to run
-Zonation. It provides the list of features included in the analysis and
-their specific parameters. The `create_feature_list()` function
-generates this from raster files in a specified directory and allows
-users to include optional attributes based on their requirements.
+``` r
+# Load necessary libraries
+library(terra)  # For plotting
+
+#----------------------------------------------------
+# Define a writable directory for Zonation processing
+#----------------------------------------------------
+writable_dir <- tempdir()
+
+# Alternative: use a real folder (uncomment and modify as needed)
+# writable_dir <- "C:/Users/YourName/Documents/ZonationRuns/my_zonation_run"
+# writable_dir <- getwd()
+
+# Set working directory so Zonation5R functions write/read files correctly
+setwd(writable_dir)
+
+#----------------------------------------------------
+# Copy example biodiversity data into a subfolder
+#----------------------------------------------------
+biodiv_data_dir <- file.path(writable_dir, "biodiversity")
+dir.create(biodiv_data_dir, showWarnings = FALSE)
+
+extdata_path <- system.file("extdata", "biodiversity", package = "Zonation5R")
+file.copy(list.files(extdata_path, full.names = TRUE), biodiv_data_dir, overwrite = TRUE)
+
+#----------------------------------------------------
+# Load and plot biodiversity data
+#----------------------------------------------------
+spp_files <- list.files(biodiv_data_dir, pattern = "\\.tif$", full.names = TRUE)
+biodiv_stack <- rast(spp_files)
+
+# Use file names as layer names for automatic plot titles
+names(biodiv_stack) <- basename(spp_files)
+
+# Plot the biodiversity input layers
+plot(biodiv_stack)
+```
+
+![](README_files/figure-gfm/zonation-example-1.png)<!-- -->
 
 ``` r
-# Example usage of the create_feature_list function
-create_feature_list(spp_file_dir = "path/to/raster/files",
-                    weight = c(0.1, 0.2, 0.3),
-                    threshold = 0.5)
+#----------------------------------------------------
+# Zonation 5 setup
+#----------------------------------------------------
+
+# Create feature list file 
+create_feature_list(spp_file_dir = "biodiversity")
+
+# Create settings file
+create_settings_file(feature_list_file = "feature_list.txt")
+
+# Create the Zonation call (adjust the path to where Zonation 5 is installed)
+create_zonation5_call(
+  zonation_path = "C:/Program Files (x86)/Zonation5",
+  marginal_loss_mode = "CAZMAX",
+  settings_file = "settings_file.z5"
+)
+
+#----------------------------------------------------
+# Run Zonation 5 prioritization
+#----------------------------------------------------
+run_zonation5(writable_dir)
+
+#----------------------------------------------------
+# Plot the resulting rankmap
+#----------------------------------------------------
+rankmap_path <- file.path(writable_dir, "output", "rankmap.tif")
+rankmap_raster <- rast(rankmap_path)
+plot(rankmap_raster, main = "Zonation 5 Rank Map")
+```
+
+![](README_files/figure-gfm/zonation-example-2.png)<!-- -->
+
+``` r
+# Clean up
+# WARNING: This deletes the entire directory! Only do this for temporary folders.
+unlink(writable_dir, recursive = TRUE)
 ```
 
 ## Developers
