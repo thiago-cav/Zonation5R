@@ -32,7 +32,7 @@ library(Zonation5R)
 
 ### Example
 
-```{r zonation-example, eval = TRUE, message = FALSE, results = 'hide', warning = FALSE}
+```{r zonation-example, fig.keep = "none", eval = TRUE, message = FALSE, results = 'hide', warning = FALSE}
 # Load necessary libraries
 library(terra)  # For plotting
 
