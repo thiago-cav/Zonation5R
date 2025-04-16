@@ -69,7 +69,11 @@ names(biodiv_stack) <- basename(spp_files)
 
 # Plot the biodiversity input layers
 plot(biodiv_stack)
+```
 
+![](inst/images/zonation-example-1.png)<!-- -->
+
+``` r
 #----------------------------------------------------
 # Zonation 5 setup
 #----------------------------------------------------
@@ -98,7 +102,11 @@ run_zonation5(writable_dir)
 rankmap_path <- file.path(writable_dir, "output", "rankmap.tif")
 rankmap_raster <- rast(rankmap_path)
 plot(rankmap_raster, main = "Zonation 5 Rank Map")
+```
 
+![](inst/images/zonation-example-2.png)<!-- -->
+
+``` r
 # Clean up
 # WARNING: This deletes the entire directory! Only do this for temporary folders.
 unlink(writable_dir, recursive = TRUE)
