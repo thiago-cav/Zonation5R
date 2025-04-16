@@ -9,11 +9,11 @@ Zonation5R
 v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 *Zonation5R* is an R package that provides an interface to easily
-integrate and execute Zonation 5 software directly from R. It enables
-efficient spatial prioritization workflows with enhanced reproducibility
-and automation. The package was also developed to support teaching and
-learning, making it easier for R users to get started with Zonation 5
-and learn spatial prioritization techniques.
+integrate and execute Zonation 5 software directly from R. The package
+was developed to support teaching and learning, making it easier for R
+users to get started with Zonation 5 and learn spatial prioritization
+techniques. It also facilitates efficient spatial prioritization
+workflows, improving both reproducibility and automation.
 
 ## Installation
 
