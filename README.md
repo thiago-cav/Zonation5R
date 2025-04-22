@@ -25,26 +25,27 @@ if (!require(devtools)) install.packages("devtools")
 devtools::install_github("thiago-cav/Zonation5R")
 ```
 
-### Usage
-
-``` r
-library(Zonation5R)
-```
-
-### Example
+## Getting started
 
 ``` r
 # Load necessary libraries
+library(Zonation5R)
 library(terra)  # For plotting
+```
 
+This is the most basic example to get a simple setup running with
+*Zonation5R*. Since this package serves as an interface, we need to make
+sure Zonation has access to the necessary input files. That means we
+must either use a physical directory or a writable temporary directory.
+To get started, let’s copy the example data from the package into a
+working directory and make a quick plot.
+
+``` r
 #----------------------------------------------------
 # Define a writable directory for Zonation processing
 #----------------------------------------------------
-writable_dir <- tempdir()
-
-# Alternative: use a real folder (uncomment and modify as needed)
 # writable_dir <- "C:/Users/YourName/Documents/ZonationRuns/my_zonation_run"
-# writable_dir <- getwd()
+writable_dir <- tempdir()
 
 # Set working directory so Zonation5R functions write/read files correctly
 setwd(writable_dir)
@@ -71,7 +72,14 @@ names(biodiv_stack) <- basename(spp_files)
 plot(biodiv_stack)
 ```
 
-![](inst/images/zonation-example-1.png)<!-- -->
+![](inst/images/unnamed-chunk-3-1.png)<!-- -->
+
+Now we can use the four core functions of *Zonation5R* to create the
+three compulsory input files and run the analysis. One key thing to pay
+attention to is the `zonation_path` argument in the
+`create_zonation5_call()` function. This specifies the path to the
+Zonation 5 installation on your computer, so make sure it’s correctly
+set.
 
 ``` r
 #----------------------------------------------------
@@ -79,7 +87,7 @@ plot(biodiv_stack)
 #----------------------------------------------------
 
 # Create feature list file 
-create_feature_list(spp_file_dir = "biodiversity")
+create_feature_list(spp_file_dir = biodiv_data_dir)  # Use variable for the directory
 
 # Create settings file
 create_settings_file(feature_list_file = "feature_list.txt")
@@ -94,8 +102,16 @@ create_zonation5_call(
 #----------------------------------------------------
 # Run Zonation 5 prioritization
 #----------------------------------------------------
-run_zonation5(writable_dir)
+run_zonation5(writable_dir)  # Use variable for the directory
+```
 
+Finally, we can visualize the priority rank map - a key output of
+Zonation 5. This map is a floating-point raster where each grid cell is
+ranked from lowest to highest priority. The rank values range from 0
+(indicating the lowest priority, shown in dark purple) to 1 (indicating
+the highest priority, shown in yellow).
+
+``` r
 #----------------------------------------------------
 # Plot the resulting rankmap
 #----------------------------------------------------
@@ -104,7 +120,7 @@ rankmap_raster <- rast(rankmap_path)
 plot(rankmap_raster, main = "Zonation 5 Rank Map")
 ```
 
-![](inst/images/zonation-example-2.png)<!-- -->
+![](inst/images/unnamed-chunk-5-1.png)<!-- -->
 
 ``` r
 # Clean up
