@@ -8,7 +8,7 @@ Zonation5R
 [![License: GPL
 v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-*Zonation5R* is an R package that provides an interface to easily
+*Zonation5R* is a R package that provides an interface to easily
 integrate and execute Zonation 5 software directly from R. The package
 was developed to support teaching and learning, making it easier for R
 users to get started with Zonation 5 and learn spatial prioritization
@@ -33,19 +33,22 @@ library(Zonation5R)
 library(terra)  # For plotting
 ```
 
-This is the most basic example to get a simple setup running with
-*Zonation5R*. Since this package serves as an interface, we need to make
-sure Zonation has access to the necessary input files. That means we
-must either use a physical directory or a writable temporary directory.
-To get started, let’s copy the example data from the package into a
-working directory and make a quick plot.
+This is a basic example to get a setup running with *Zonation5R*. Since
+this package serves as an interface, we need to make sure Zonation has
+access to the necessary input files. That means we must either use an
+on-disk directory or a writable temporary directory. To get started,
+let’s copy the example data from the package into a working directory
+and make a quick plot.
 
 ``` r
 #----------------------------------------------------
 # Define a writable directory for Zonation processing
 #----------------------------------------------------
-# writable_dir <- "C:/Users/YourName/Documents/ZonationRuns/my_zonation_run"
 writable_dir <- tempdir()
+
+# Alternative: use a real folder (uncomment and modify as needed).
+# writable_dir <- "C:/Users/YourName/Documents/ZonationRuns/my_zonation_run"
+# writable_dir <- getwd()
 
 # Set working directory so Zonation5R functions write/read files correctly
 setwd(writable_dir)
@@ -74,7 +77,7 @@ plot(biodiv_stack)
 
 ![](inst/images/unnamed-chunk-3-1.png)<!-- -->
 
-Now we can use the four core functions of *Zonation5R* to create the
+Now we can use the four primary functions of *Zonation5R* to create the
 three compulsory input files and run the analysis. One key thing to pay
 attention to is the `zonation_path` argument in the
 `create_zonation5_call()` function. This specifies the path to the
@@ -133,8 +136,3 @@ unlink(writable_dir, recursive = TRUE)
 Thiago Cavalcante  
 ORCID: [0000-0001-5357-9659](https://orcid.org/0000-0001-5357-9659)  
 Email: <thiago.cavalcante@helsinki.fi>
-
-This package has been shaped by many trials and errors, and it is
-constantly being refined. As such, contributions, suggestions, and
-feedback are always welcome—after all, *“it doesn’t matter if your first
-version isn’t perfect as long as the next version is better”*.
