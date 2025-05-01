@@ -14,7 +14,7 @@ create_zonation5_call(
 )
 }
 \arguments{
-\item{os}{Operating system. Default is "Windows".}
+\item{os}{Operating system. Default is "Windows"; set to "Linux" if using a Linux system.}
 
 \item{zonation_path}{The specification for the path where Zonation 5 is installed.}
 

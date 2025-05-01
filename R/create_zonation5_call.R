@@ -3,7 +3,7 @@
 #' This function generates a command file for running Zonation 5 and specifies
 #' the analysis options and related parameters. The file is saved with a `.cmd` (Windows) or `.sh` (Linux) suffix.
 #'
-#' @param os Operating system. Default is "Windows".
+#' @param os Operating system. Default is "Windows"; set to "Linux" if using a Linux system.
 #' @param zonation_path The specification for the path where Zonation 5 is installed.
 #' @param flags Flags that control which analysis options are used. Used to include single letter codes
 #'              that switch analysis options on.
