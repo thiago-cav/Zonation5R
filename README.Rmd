@@ -81,7 +81,7 @@ Now we can use the four primary functions of *Zonation5R* to create the three co
 #----------------------------------------------------
 
 # Create feature list file 
-create_feature_list(spp_file_dir = biodiv_data_dir)  # Use variable for the directory
+feature_list(spp_file_dir = biodiv_data_dir)  # Use variable for the directory
 
 # Create settings file
 create_settings_file(feature_list_file = "feature_list.txt")
