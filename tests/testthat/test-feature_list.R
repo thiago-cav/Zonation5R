@@ -1,4 +1,4 @@
-test_that("create_feature_list creates a valid output file", {
+test_that("feature_list creates a valid output file", {
   # Create temporary directories
   temp_dir <- tempfile()
   dir.create(temp_dir)
@@ -8,7 +8,7 @@ test_that("create_feature_list creates a valid output file", {
   file.create(raster_files)
 
   # Run the function (no output_dir specified)
-  create_feature_list(
+  feature_list(
     spp_file_dir = temp_dir
   )
 
