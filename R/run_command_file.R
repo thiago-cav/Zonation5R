@@ -34,7 +34,7 @@ run_command_file <- function(folder) {
   on.exit(setwd(old_wd), add = TRUE)  # restore old working directory on exit
   setwd(folder)
 
-  system(cmd_files[1])
+  system(basename(cmd_files[1]))
 
   # Notify when analysis is finished
   message("The analysis has been completed.")
