@@ -6,7 +6,7 @@
 #' @param os Operating system. Default is "Windows"; set to "Linux" if using a Linux system.
 #' @param zonation_path The specification for the path where Zonation 5 is installed.
 #' @param flags Flags that control which analysis options are used. Used to include single letter codes
-#'              that switch analysis options on.
+#'              that switch analysis options on. Available options are: a, w, g, h, x, X, t.
 #' @param marginal_loss_mode The marginal loss rule is specified using this parameter.
 #' @param gui_activated This parameter controls whether the Graphical User Interface (GUI)
 #'      is launched when running the command file. The default is FALSE (GUI not activated).
@@ -16,13 +16,13 @@
 #'
 #' @examples
 #' \dontrun{
-#' create_zonation5_call(zonation_path = "C:/Program Files (x86)/Zonation5",
+#' command_file(zonation_path = "C:/Program Files (x86)/Zonation5",
 #'                       marginal_loss_mode = "ABF",
 #'                       settings_file = "settings_file.z5")
 #'
 #' }
 #' @export
-create_zonation5_call <- function(os = "Windows",
+command_file <- function(os = "Windows",
                                   zonation_path,           # Required parameter
                                   flags = "",
                                   marginal_loss_mode,      # Required parameter
@@ -37,13 +37,30 @@ create_zonation5_call <- function(os = "Windows",
 
   # Validate required parameters
   if (missing(zonation_path)) {
-    stop("Error: 'zonation_path' must be provided.")
+    stop("'zonation_path' must be provided.")
   }
   if (missing(marginal_loss_mode)) {
-    stop("Error: 'marginal_loss_mode' must be provided.")
+    stop("'marginal_loss_mode' must be provided.")
   }
   if (missing(settings_file)) {
-    stop("Error: 'settings_file' must be provided.")
+    stop("'settings_file' must be provided.")
+  }
+
+  # Validate flags
+  if (flags != "") {
+    allowed_flags <- c("a", "w", "g", "h", "x", "X", "t")
+    flag_chars <- strsplit(flags, "")[[1]]
+
+    invalid_flags <- setdiff(flag_chars, allowed_flags)
+    if (length(invalid_flags) > 0) {
+      stop(
+        "Invalid analysis option flag(s): ",
+        paste(invalid_flags, collapse = ", "),
+        ". Flags activate analysis options and must be one or more of: ",
+        paste(allowed_flags, collapse = ", "),
+        "."
+      )
+    }
   }
 
   # Ensure the output command file has the correct extension based on OS
