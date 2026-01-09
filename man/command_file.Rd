@@ -10,7 +10,8 @@ command_file(
   flags = "",
   marginal_loss_mode,
   gui_activated = FALSE,
-  settings_file
+  settings_file,
+  output_dir = "output"
 )
 }
 \arguments{
@@ -27,6 +28,9 @@ that switch analysis options on. Available options are: a, w, g, h, x, X, t.}
 is launched when running the command file. The default is FALSE (GUI not activated).}
 
 \item{settings_file}{A character string specifying the settings file.}
+
+\item{output_dir}{A character string specifying the name of the output directory
+where the analysis results will be saved. Default is "output".}
 }
 \value{
 The Zonation 5 command file.

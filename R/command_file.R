@@ -11,6 +11,8 @@
 #' @param gui_activated This parameter controls whether the Graphical User Interface (GUI)
 #'      is launched when running the command file. The default is FALSE (GUI not activated).
 #' @param settings_file A character string specifying the settings file.
+#' @param output_dir A character string specifying the name of the output directory
+#'        where the analysis results will be saved. Default is "output".
 #'
 #' @return The Zonation 5 command file.
 #'
@@ -23,17 +25,18 @@
 #' }
 #' @export
 command_file <- function(os = "Windows",
-                                  zonation_path,           # Required parameter
-                                  flags = "",
-                                  marginal_loss_mode,      # Required parameter
-                                  gui_activated = FALSE,
-                                  settings_file) {         # Required parameter
+                         zonation_path,           # Required parameter
+                         flags = "",
+                         marginal_loss_mode,      # Required parameter
+                         gui_activated = FALSE,
+                         settings_file,
+                         output_dir = "output") {         # Required parameter
 
   # Set the command_file parameter to a fixed value
   command_file <- "command_file.cmd"  # or "command_file.sh" based on the OS
 
   # Set results directory to a fixed value
-  results_directory <- "output"  # Directory for analysis results
+  results_directory <- output_dir  # Directory for analysis results
 
   # Validate required parameters
   if (missing(zonation_path)) {

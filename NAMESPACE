@@ -2,6 +2,6 @@
 
 export(command_file)
 export(feature_list)
-export(run_zonation5)
+export(run_command_file)
 export(settings_file)
 importFrom(utils,write.table)
