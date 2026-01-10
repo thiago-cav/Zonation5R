@@ -6,31 +6,38 @@
 #' @param os Operating system. Default is "Windows"; set to "Linux" if using a Linux system.
 #' @param zonation_path The specification for the path where Zonation 5 is installed.
 #' @param flags Flags that control which analysis options are used. Used to include single letter codes
-#'              that switch analysis options on. Available options are: a, w, g, h, x, X, t.
-#' @param marginal_loss_mode The marginal loss rule is specified using this parameter.
+#'      that switch analysis options on. Available options are: a, w, g, h, x, X, t.
+#' @param marginal_loss_mode Character string specifying the marginal loss rule.
+#'      Available options are "CAZ1", "CAZ2", "ABF", "CAZMAX", "LOAD", and "RAND". Default is "CAZ2".
 #' @param gui_activated This parameter controls whether the Graphical User Interface (GUI)
-#'      is launched when running the command file. The default is FALSE (GUI not activated).
-#' @param settings_file A character string specifying the settings file.
+#'      is launched when running the command file. The default is TRUE (GUI activated).
+#' @param settings_file Character string specifying the settings file.
+#'        Default is "settings_file.z5".
 #' @param output_dir A character string specifying the name of the output directory
-#'        where the analysis results will be saved. Default is "output".
+#'      where the analysis results will be saved. Default is "output".
 #'
 #' @return The Zonation 5 command file.
 #'
 #' @examples
 #' \dontrun{
-#' command_file(zonation_path = "C:/Program Files (x86)/Zonation5",
-#'                       marginal_loss_mode = "ABF",
-#'                       settings_file = "settings_file.z5")
+#' command_file(
+#'   zonation_path = "C:/Program Files (x86)/Zonation5"
+#' )
 #'
+#' command_file(
+#'   zonation_path = "C:/Program Files (x86)/Zonation5",
+#'   marginal_loss_mode = "ABF",
+#'   gui_activated = FALSE
+#' )
 #' }
 #' @export
 command_file <- function(os = "Windows",
                          zonation_path,           # Required parameter
                          flags = "",
-                         marginal_loss_mode,      # Required parameter
-                         gui_activated = FALSE,
-                         settings_file,
-                         output_dir = "output") {         # Required parameter
+                         marginal_loss_mode = "CAZ2",
+                         gui_activated = TRUE,
+                         settings_file = "settings_file.z5",
+                         output_dir = "output") {
 
   # Set the command_file parameter to a fixed value
   command_file <- "command_file.cmd"  # or "command_file.sh" based on the OS
@@ -42,11 +49,21 @@ command_file <- function(os = "Windows",
   if (missing(zonation_path)) {
     stop("'zonation_path' must be provided.")
   }
-  if (missing(marginal_loss_mode)) {
-    stop("'marginal_loss_mode' must be provided.")
+
+  allowed_modes <- c("CAZ1", "CAZ2", "ABF", "CAZMAX", "LOAD", "RAND")
+
+  if (!marginal_loss_mode %in% allowed_modes) {
+    stop(
+      "'marginal_loss_mode' must be one of: ",
+      paste(allowed_modes, collapse = ", "),
+      "."
+    )
   }
-  if (missing(settings_file)) {
-    stop("'settings_file' must be provided.")
+
+  if (!file.exists(settings_file)) {
+    stop(
+      "Settings file not found: '", settings_file, "'."
+    )
   }
 
   # Validate flags

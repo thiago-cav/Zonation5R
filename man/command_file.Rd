@@ -8,9 +8,9 @@ command_file(
   os = "Windows",
   zonation_path,
   flags = "",
-  marginal_loss_mode,
-  gui_activated = FALSE,
-  settings_file,
+  marginal_loss_mode = "CAZ2",
+  gui_activated = TRUE,
+  settings_file = "settings_file.z5",
   output_dir = "output"
 )
 }
@@ -22,12 +22,14 @@ command_file(
 \item{flags}{Flags that control which analysis options are used. Used to include single letter codes
 that switch analysis options on. Available options are: a, w, g, h, x, X, t.}
 
-\item{marginal_loss_mode}{The marginal loss rule is specified using this parameter.}
+\item{marginal_loss_mode}{Character string specifying the marginal loss rule.
+Available options are "CAZ1", "CAZ2", "ABF", "CAZMAX", "LOAD", and "RAND". Default is "CAZ2".}
 
 \item{gui_activated}{This parameter controls whether the Graphical User Interface (GUI)
-is launched when running the command file. The default is FALSE (GUI not activated).}
+is launched when running the command file. The default is TRUE (GUI activated).}
 
-\item{settings_file}{A character string specifying the settings file.}
+\item{settings_file}{Character string specifying the settings file.
+Default is "settings_file.z5".}
 
 \item{output_dir}{A character string specifying the name of the output directory
 where the analysis results will be saved. Default is "output".}
@@ -41,9 +43,14 @@ the analysis options and related parameters. The file is saved with a \code{.cmd
 }
 \examples{
 \dontrun{
-command_file(zonation_path = "C:/Program Files (x86)/Zonation5",
-                      marginal_loss_mode = "ABF",
-                      settings_file = "settings_file.z5")
+command_file(
+  zonation_path = "C:/Program Files (x86)/Zonation5"
+)
 
+command_file(
+  zonation_path = "C:/Program Files (x86)/Zonation5",
+  marginal_loss_mode = "ABF",
+  gui_activated = FALSE
+)
 }
 }
