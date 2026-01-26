@@ -82,10 +82,9 @@ plot(biodiv_stack)
 
 Now we can use the four primary functions of *Zonation5R* to create the
 three compulsory input files and run the analysis. One key thing to pay
-attention to is the `zonation_path` argument in the
-`create_zonation5_call()` function. This specifies the path to the
-Zonation 5 installation on your computer, so make sure it’s correctly
-set.
+attention to is the `zonation_path` argument in the `command_file()`
+function. This specifies the path to the Zonation 5 installation on your
+computer, so make sure it’s correctly set.
 
 ``` r
 #----------------------------------------------------
@@ -110,9 +109,9 @@ command_file(zonation_path = "C:/Program Files (x86)/Zonation5",
 run_command_file(writable_dir)  # Use variable for the directory
 ```
 
-Finally, we can visualize the priority rank map - a key output of
-Zonation 5. This map is a floating-point raster where each grid cell is
-ranked from lowest to highest priority. The rank values range from 0
+Finally, we can visualize a key output of Zonation 5: the priority rank
+map. This map is a floating-point raster where each grid cell is ranked
+from lowest to highest priority. The rank values range from 0
 (indicating the lowest priority, shown in dark purple) to 1 (indicating
 the highest priority, shown in yellow).
 
