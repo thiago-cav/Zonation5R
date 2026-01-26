@@ -15,6 +15,11 @@ users to get started with Zonation 5 and learn spatial prioritization
 techniques. It also facilitates efficient spatial prioritization
 workflows, improving both reproducibility and automation.
 
+> |  |
+> |----|
+> | 🚧 **UNDER ACTIVE DEVELOPMENT** 🚧 |
+> | **Examples below illustrate the intended workflow and may not run end-to-end on all systems while the package is evolving.** |
+
 ## Installation
 
 You can install the development version of *Zonation5R* from
@@ -75,8 +80,6 @@ names(biodiv_stack) <- basename(spp_files)
 plot(biodiv_stack)
 ```
 
-![](inst/images/unnamed-chunk-3-1.png)<!-- -->
-
 Now we can use the four primary functions of *Zonation5R* to create the
 three compulsory input files and run the analysis. One key thing to pay
 attention to is the `zonation_path` argument in the
@@ -90,22 +93,21 @@ set.
 #----------------------------------------------------
 
 # Create feature list file 
-create_feature_list(spp_file_dir = biodiv_data_dir)  # Use variable for the directory
+feature_list(spp_file_dir = biodiv_data_dir)  # Use variable for the directory
 
 # Create settings file
-create_settings_file(feature_list_file = "feature_list.txt")
+settings_file(feature_list_file = "feature_list.txt")
 
 # Create the Zonation call (adjust the path to where Zonation 5 is installed)
-create_zonation5_call(
-  zonation_path = "C:/Program Files (x86)/Zonation5",
-  marginal_loss_mode = "CAZMAX",
-  settings_file = "settings_file.z5"
+command_file(zonation_path = "C:/Program Files (x86)/Zonation5",
+             marginal_loss_mode = "CAZMAX",
+             gui_activated = TRUE
 )
 
 #----------------------------------------------------
 # Run Zonation 5 prioritization
 #----------------------------------------------------
-run_zonation5(writable_dir)  # Use variable for the directory
+run_command_file(writable_dir)  # Use variable for the directory
 ```
 
 Finally, we can visualize the priority rank map - a key output of
@@ -121,11 +123,7 @@ the highest priority, shown in yellow).
 rankmap_path <- file.path(writable_dir, "output", "rankmap.tif")
 rankmap_raster <- rast(rankmap_path)
 plot(rankmap_raster, main = "Zonation 5 Rank Map")
-```
 
-![](inst/images/unnamed-chunk-5-1.png)<!-- -->
-
-``` r
 # Clean up
 # WARNING: This deletes the entire directory! Only do this for temporary folders.
 unlink(writable_dir, recursive = TRUE)

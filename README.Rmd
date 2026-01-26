@@ -5,9 +5,13 @@ output:
     toc: false
     toc_depth: 2
 ---
-```{r, setup, include=FALSE}
-# Set the root directory to the system's temporary directory
-knitr::opts_knit$set(root.dir = tempdir())
+```{r, setup, include=FALSE, eval=FALSE}
+knitr::opts_chunk$set(
+  eval = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+
 ```
 
 <a href="https://github.com/thiago-cav/Zonation5R">
@@ -17,6 +21,12 @@ knitr::opts_knit$set(root.dir = tempdir())
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)  
 
 *Zonation5R* is an R package that provides an interface to easily integrate and execute Zonation 5 software directly from R. The package was developed to support teaching and learning, making it easier for R users to get started with Zonation 5 and learn spatial prioritization techniques. It also facilitates efficient spatial prioritization workflows, improving both reproducibility and automation.
+
+> ---
+> 🚧 **UNDER ACTIVE DEVELOPMENT** 🚧  
+> **Examples below illustrate the intended workflow and may not run end-to-end on all systems while the package is evolving.**
+> ---
+
 
 ## Installation
 
@@ -29,7 +39,7 @@ devtools::install_github("thiago-cav/Zonation5R")
 
 ## Getting started
 
-```{r, fig.path = "inst/images/", eval = TRUE, message = FALSE, results = 'hide', warning = FALSE}
+```{r, fig.path = "inst/images/", eval = FALSE, message = FALSE, results = 'hide', warning = FALSE}
 # Load necessary libraries
 library(Zonation5R)
 library(terra)  # For plotting
@@ -37,7 +47,7 @@ library(terra)  # For plotting
 
 This is a basic example to get a setup running with *Zonation5R*. Since this package serves as an interface, we need to make sure Zonation has access to the necessary input files. That means we must either use an on-disk directory or a writable temporary directory. To get started, let's copy the example data from the package into a working directory and make a quick plot.
 
-```{r, fig.path = "inst/images/", eval = TRUE, message = FALSE, results = 'hide', warning = FALSE}
+```{r, fig.path = "inst/images/", eval = FALSE, message = FALSE, results = 'hide', warning = FALSE}
 #----------------------------------------------------
 # Define a writable directory for Zonation processing
 #----------------------------------------------------
@@ -75,7 +85,7 @@ plot(biodiv_stack)
 
 Now we can use the four primary functions of *Zonation5R* to create the three compulsory input files and run the analysis. One key thing to pay attention to is the `zonation_path` argument in the `create_zonation5_call()` function. This specifies the path to the Zonation 5 installation on your computer, so make sure it's correctly set.
 
-```{r, fig.path = "inst/images/", eval = TRUE, message = FALSE, results = 'hide', warning = FALSE}
+```{r, fig.path = "inst/images/", eval = FALSE, message = FALSE, results = 'hide', warning = FALSE}
 #----------------------------------------------------
 # Zonation 5 setup
 #----------------------------------------------------
@@ -84,26 +94,25 @@ Now we can use the four primary functions of *Zonation5R* to create the three co
 feature_list(spp_file_dir = biodiv_data_dir)  # Use variable for the directory
 
 # Create settings file
-create_settings_file(feature_list_file = "feature_list.txt")
+settings_file(feature_list_file = "feature_list.txt")
 
 # Create the Zonation call (adjust the path to where Zonation 5 is installed)
-create_zonation5_call(
-  zonation_path = "C:/Program Files (x86)/Zonation5",
-  marginal_loss_mode = "CAZMAX",
-  settings_file = "settings_file.z5"
+command_file(zonation_path = "C:/Program Files (x86)/Zonation5",
+             marginal_loss_mode = "CAZMAX",
+             gui_activated = TRUE
 )
 
 #----------------------------------------------------
 # Run Zonation 5 prioritization
 #----------------------------------------------------
-run_zonation5(writable_dir)  # Use variable for the directory
+run_command_file(writable_dir)  # Use variable for the directory
 
 ```
 
 Finally, we can visualize the priority rank map - a key output of Zonation 5. This map is a floating-point raster where each grid cell is ranked from lowest to highest priority. The rank values range from 0 (indicating the lowest priority, shown in dark purple) to 1 (indicating the highest priority, shown in yellow).
 
 
-```{r, fig.path = "inst/images/", eval = TRUE, message = FALSE, results = 'hide', warning = FALSE}
+```{r, fig.path = "inst/images/", eval = FALSE, message = FALSE, results = 'hide', warning = FALSE}
 
 #----------------------------------------------------
 # Plot the resulting rankmap
