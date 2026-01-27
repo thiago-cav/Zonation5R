@@ -12,7 +12,7 @@
 #' @param threshold An optional numeric vector (`float`) representing the threshold value below which
 #'                  input files are cut to zero.
 #'
-#' #NOTE: Add more information about the threshold parameter. How it is used in Zonation?
+#' #NOTE:  Add more information about the threshold parameter. How it is used in Zonation?? How users can used this parameters?
 #' 
 #' 
 #' @returns A text file containing a feature list of rasters along with any additional attributes
