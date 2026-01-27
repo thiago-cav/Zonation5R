@@ -5,13 +5,16 @@
 #' feature list is written to a text file. Supported raster formats include GeoTIFF
 #' (.tif, .tiff), ERDAS Imagine (.img), and ASCII Grid (.asc).
 #'
-#'
+#' 
 #' @param spp_file_dir A character string specifying the directory containing the raster files.
 #' @param weight An optional numeric vector (`float`) to assign weights to the features in the list.
 #' @param group An optional integer vector (`int`) representing the output group number for each raster.
 #' @param threshold An optional numeric vector (`float`) representing the threshold value below which
 #'                  input files are cut to zero.
 #'
+#' #NOTE: Add more information about the threshold parameter. How it is used in Zonation?
+#' 
+#' 
 #' @returns A text file containing a feature list of rasters along with any additional attributes
 #'          specified by the user.
 #'
