@@ -135,7 +135,7 @@ check_zonation_executable <- function(zonation_path = NULL, os = NULL) {
     )
   }
 
-  # If user provided a path, check it first
+  # If user provided a path, check it only there
   found_path <- NULL
   found_executable <- NULL
 
@@ -146,10 +146,8 @@ check_zonation_executable <- function(zonation_path = NULL, os = NULL) {
     if (!is.null(found_executable)) {
       found_path <- zonation_path
     }
-  }
-
-  # If not found in user-provided path, check common locations
-  if (is.null(found_executable)) {
+  } else {
+    # No user-provided path: check common locations
     for (path in common_paths) {
       path <- path.expand(path)
       found_executable <- check_executable_at_path(path, exe_name, exe_name_alt)
@@ -158,13 +156,13 @@ check_zonation_executable <- function(zonation_path = NULL, os = NULL) {
         break
       }
     }
-  }
 
-  # If still not found, check system PATH (Linux)
-  if (is.null(found_executable) && os == "Linux") {
-    found_executable <- check_in_path(exe_name)
-    if (!is.null(found_executable)) {
-      found_path <- dirname(found_executable)
+    # If still not found, check system PATH (Linux)
+    if (is.null(found_executable) && os == "Linux") {
+      found_executable <- check_in_path(exe_name)
+      if (!is.null(found_executable)) {
+        found_path <- dirname(found_executable)
+      }
     }
   }
 
