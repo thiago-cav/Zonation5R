@@ -13,8 +13,9 @@ feature_list(spp_file_dir, weight = NULL, group = NULL, threshold = NULL)
 
 \item{group}{An optional integer vector (\code{int}) representing the output group number for each raster.}
 
-\item{threshold}{An optional numeric vector (\code{float}) representing the threshold value below which
-input files are cut to zero.}
+\item{threshold}{An optional numeric vector (\code{float}) representing threshold values for each raster.If thresholding
+is applied, values in the input raster below the threshold are set to zero. Layers that contain
+only zeros after thresholding are removed from the analysis.}
 }
 \value{
 A text file containing a feature list of rasters along with any additional attributes
