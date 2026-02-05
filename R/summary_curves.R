@@ -2,8 +2,8 @@
 #'
 #' This function reads a Zonation summary curves file and plots one or more
 #' summary metrics against the priority rank. The output is a ggplot object,
-#' which can be further customized by the user. Optionally, the plot can
-#' be saved to disk as a high-quality figure.
+#' which can be further customized by the user. Optionally, the plot can be
+#' saved to disk as a high-quality figure.
 #'
 #' @param data_path Character. Path to the Zonation output file
 #'   (\code{summary_curves.csv}).
@@ -12,17 +12,18 @@
 #'   Fraction-based metrics can be overlaid together, while
 #'   \code{remaining_area} and \code{remaining_cost} cannot be overlaid with
 #'   other metrics.
-#' @param facet Logical. If TRUE, metrics are plotted in separate panels.
-#'   This should be used when plotting metrics with different units or value ranges.
+#' @param facet Logical. If TRUE, metrics are plotted in separate panels. This
+#'   should be used when plotting metrics with different units or value ranges.
 #'   Default is FALSE.
-#' @param save_path Character. Optional file path to save the plot.
-#'   The file format is inferred from the file extension (e.g. ".tiff").
-#' @param dpi Numeric. Resolution (dots per inch) for saved figures.
-#'   Default is 300.
+#' @param save_path Character. Optional file path to save the plot. The file
+#'   format is inferred from the file extension (e.g. ".tiff").
+#' @param dpi Numeric. Resolution (dots per inch) for saved figures. Default is
+#'   300.
 #' @param width Numeric. Width of the saved figure in inches. Default is 8.
 #' @param height Numeric. Height of the saved figure in inches. Default is 6.
 #'
-#' @return A \code{ggplot} object.
+#' @returns A \code{ggplot} object visualizing one or more Zonation summary
+#'   metrics plotted against priority rank.
 #'
 #' @examples
 #' \dontrun{

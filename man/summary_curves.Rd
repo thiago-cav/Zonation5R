@@ -24,28 +24,29 @@ Fraction-based metrics can be overlaid together, while
 \code{remaining_area} and \code{remaining_cost} cannot be overlaid with
 other metrics.}
 
-\item{facet}{Logical. If TRUE, metrics are plotted in separate panels.
-This should be used when plotting metrics with different units or value ranges.
+\item{facet}{Logical. If TRUE, metrics are plotted in separate panels. This
+should be used when plotting metrics with different units or value ranges.
 Default is FALSE.}
 
-\item{save_path}{Character. Optional file path to save the plot.
-The file format is inferred from the file extension (e.g. ".tiff").}
+\item{save_path}{Character. Optional file path to save the plot. The file
+format is inferred from the file extension (e.g. ".tiff").}
 
-\item{dpi}{Numeric. Resolution (dots per inch) for saved figures.
-Default is 300.}
+\item{dpi}{Numeric. Resolution (dots per inch) for saved figures. Default is
+300.}
 
 \item{width}{Numeric. Width of the saved figure in inches. Default is 8.}
 
 \item{height}{Numeric. Height of the saved figure in inches. Default is 6.}
 }
 \value{
-A \code{ggplot} object.
+A \code{ggplot} object visualizing one or more Zonation summary
+metrics plotted against priority rank.
 }
 \description{
 This function reads a Zonation summary curves file and plots one or more
 summary metrics against the priority rank. The output is a ggplot object,
-which can be further customized by the user. Optionally, the plot can
-be saved to disk as a high-quality figure.
+which can be further customized by the user. Optionally, the plot can be
+saved to disk as a high-quality figure.
 }
 \examples{
 \dontrun{

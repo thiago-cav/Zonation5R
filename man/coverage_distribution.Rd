@@ -20,25 +20,25 @@ coverage_distribution(
 \item{target_rank}{Numeric. The rank value at which coverage distributions
 should be extracted and plotted.}
 
-\item{save_path}{Character. Optional file path to save the plot.
-The file format is inferred from the specified extension (e.g. ".tiff").}
+\item{save_path}{Character. Optional file path to save the plot. The file
+format is inferred from the specified extension (e.g. ".tiff").}
 
-\item{dpi}{Numeric. Resolution (dots per inch) for saved figures.
-Default is 300.}
+\item{dpi}{Numeric. Resolution (dots per inch) for saved figures. Default is
+300.}
 
 \item{width}{Numeric. Width of the saved figure in inches. Default is 8.}
 
 \item{height}{Numeric. Height of the saved figure in inches. Default is 6.}
 }
 \value{
-A \code{ggplot} object representing the coverage distribution
-histogram.
+A \code{ggplot} object showing the distribution of feature coverage
+values at the specified priority rank.
 }
 \description{
-This function reads a Zonation feature curves file and plots the
-distribution of feature coverage values at a specified priority rank.
-The output is a ggplot object, which can be further customized by the user.
-Optionally, the plot can be saved to disk as a high-quality figure.
+This function reads a Zonation feature curves file and plots the distribution
+of feature coverage values at a specified priority rank. The output is a
+ggplot object, which can be further customized by the user. Optionally, the
+plot can be saved to disk as a high-quality figure.
 }
 \examples{
 \dontrun{
