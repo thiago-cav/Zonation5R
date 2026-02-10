@@ -87,21 +87,6 @@ uncertainty and constraints.
 
 ------------------------------------------------------------------------
 
-## The need to prioritize, not just select
-
-Many conservation decisions are framed as binary choices: protect or do
-not protect, include or exclude. In reality, conservation planning
-rarely works this way. Decisions are typically incremental. Actions are
-taken over time, budgets change, and priorities are revised as new
-information becomes available. In this context, flexibility matters.
-Rather than asking whether an area should be protected at all, planners
-often need to ask which areas matter more, and which actions should
-happen first. If only part of a landscape can be addressed in the short
-term, which locations should receive priority? This shift—from selection
-to prioritization—changes the nature of the problem. The goal is no
-longer to define a single optimal solution, but to support informed
-choices under uncertainty and constraint.
-
 ## Ordering space by importance
 
 Spatial conservation prioritization addresses this challenge by ordering
@@ -113,45 +98,16 @@ comparative. The importance of a given place depends on how it
 complements other places, how many features it supports, and how
 irreplaceable it is within the broader landscape. A ranked solution
 allows decision-makers to explore different levels of conservation
-action, adjust boundaries, and evaluate trade-offs transparently. At
-this stage, no algorithms or technical details are required to
-understand the idea. What matters is the conceptual shift: conservation
-planning becomes a process of ordering space by importance, rather than
-drawing fixed lines on a map.
+action, adjust boundaries, and evaluate trade-offs transparently.
 
 ## Zonation as a practical implementation
 
-With the problem fully built, Zonation is introduced naturally. Explain
-that: • Zonation produces a spatial ranking of conservation importance •
-It integrates multiple biodiversity features • It supports transparent
-and reproducible decision-making At this point, curiosity about how is
-earned — not forced.
+Explain that: • Zonation produces a spatial ranking of conservation
+importance • It integrates multiple biodiversity features • It supports
+transparent and reproducible decision-making
 
 ## How this package fits in
 
-This section grounds expectations. Clarify that ZonationR: • does not
-replace Zonation • helps structure and run analyses from R • is designed
-for learning, teaching, and reproducible workflows This sets up the
-transition to practical work.
-
-## Installing Zonation
-
-Zonation is external software. Cover: • What installation means in
-practice • Platform differences (Windows vs Linux) • Why installation is
-separate from this package No commands yet — just orientation.
-
-## Checking your Zonation installation
-
-Introduce validation as a best practice. Explain: • Why checking the
-executable matters • Common configuration issues Introduce: •
-check_zonation_executable() Conceptual + light practical framing.
-
-## Validating input feature harmonization
-
-Close with an often-ignored but critical step. Explain: • Why spatial
-alignment matters • Resolution, extent, and projection issues • Why
-errors here propagate silently Introduce: • feature harmonization checks
-
-``` r
-library()
-```
+Clarify that ZonationR: • does not replace Zonation • helps structure
+and run analyses from R • is designed for learning, teaching, and
+reproducible workflows
