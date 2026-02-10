@@ -1,6 +1,8 @@
 ZonationR
 ================
 
+<a href="https://thiago-cav.github.io/ZonationR/"><img src="man/figures/logo.png" align="right" height="120" alt="ZonationR website" /></a>
+
 <!-- badges: start -->
 
 [![License: GPL
