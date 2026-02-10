@@ -1,4 +1,4 @@
-#' Create a Settings File for a Zonation Analysis
+#' Create a settings file for a Zonation Analysis
 #'
 #' This function generates a settings file with various parameters related to
 #' the input data and analysis configuration. The resulting settings file is
