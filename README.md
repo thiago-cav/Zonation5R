@@ -1,7 +1,7 @@
-ZonationR
-================
 
-<a href="https://thiago-cav.github.io/ZonationR/"><img src="man/figures/logo.png" align="right" height="120" alt="ZonationR website" /></a>
+# ***ZonationR*** <a href="https://thiago-cav.github.io/ZonationR/"><img src="man/figures/logo.png" align="right" height="120" alt="ZonationR website" /></a>
+
+## **A toolkit for integrating and executing Zonation 5 software directly from R**
 
 <!-- badges: start -->
 
@@ -9,12 +9,24 @@ ZonationR
 v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)  
 <!-- badges: end -->
 
-*ZonationR* is an R package that provides an interface to easily
-integrate and execute Zonation 5 software directly from R. The package
-was developed to support teaching and learning, making it easier for R
-users to get started with Zonation 5 and learn spatial prioritization
-techniques. It also facilitates efficient spatial prioritization
-workflows, improving both reproducibility and automation.
+## Overview
+
+ZonationR is an R package that provides an interface to integrate and
+execute Zonation 5 software directly from R. The package was developed
+to support teaching and learning, making it easier for R users to get
+started with Zonation and explore spatial prioritization techniques. It
+also supports efficient and transparent spatial prioritization
+workflows, improving reproducibility and facilitating automation.
+
+Standard Zonation workflows typically require manual preparation of
+input files, execution through a graphical interface or command line,
+and separate post-processing in R or GIS software. These steps can
+increase complexity and create barriers to learning, reproducibility,
+and efficient workflow development. ZonationR addresses these challenges
+by enabling direct access to Zonation 5 from R, automating input
+generation, execution, and output handling through a transparent,
+script-based workflow, while maintaining consistency with the original
+Zonation software.
 
 ## Installation
 
