@@ -9,13 +9,11 @@ knitr::opts_chunk$set(
 )
 ```
 
-Before diving into spatial prioritization with **Zonation 5**, make sure your environment is properly set up and ready to go.
+Before diving into spatial prioritization with **Zonation 5**, make sure your environment is properly set up and ready to go. Start by:
 
-Here, you will learn how to:
-
-- Install the Zonation 5 software on your computer,
-- Install and load the **ZonationR** package, and
-- Perform basic checks to ensure your setup is ready to run a prioritization analyses.
+- Installing the Zonation 5 software on your computer  
+- Installing and loading the **ZonationR** package  
+- Performing basic checks to ensure your setup is ready for prioritization analyses
 
 This setup is essential before moving on to more advanced workflows and analyses.
 
@@ -85,7 +83,11 @@ You can explore these in subsequent vignettes focused on **workflow examples**.
 
 ### Further Reading
 
-If you’re new to spatial conservation prioritization, check out these resources:
+> If you are new to spatial conservation prioritization or want a gentle overview to understand the basics, see [*Why spatial conservation prioritization?*](link-to-vignette-x).
+
+Additional resources:
 
 - The **Zonation 5 manual** — detailed instructions and explanations of prioritization settings. ([zonationteam.github.io](https://zonationteam.github.io/Zonation5))
+
+
 
