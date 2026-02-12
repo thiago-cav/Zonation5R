@@ -19,13 +19,13 @@ This setup is essential before moving on to more advanced workflows and analyses
 
 ### Install Zonation 5 Software
 
-Before using **ZonationR**, you must install the **Zonation 5 software** on your computer.
+To use **ZonationR**, you must install the **Zonation 5 software** on your computer.
 
 1. Visit the Zonation 5 project site: [zonationteam.github.io](https://zonationteam.github.io/Zonation5/?utm_source=chatgpt.com)
 
 2. Download the appropriate installer or executable for your operating system (e.g., Windows installer, Linux AppImage).
 
-3. Install or unpack the software, and **note the installation path** — you’ll use it later when calling Zonation from R.
+3. Install or unpack the software, and **note the installation path**. You’ll use it later when calling Zonation from R.
 
 
 ### Install the R Package

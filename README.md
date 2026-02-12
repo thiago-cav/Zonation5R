@@ -7,6 +7,7 @@
 
 [![License: GPL
 v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)  
+[![R-CMD-check](https://github.com/thiago-cav/Zonation5R/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/thiago-cav/Zonation5R/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 #### **Overview**

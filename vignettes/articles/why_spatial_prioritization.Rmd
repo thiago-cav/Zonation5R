@@ -19,7 +19,7 @@ Even when conservation goals are global, the real impact happens in specific pla
 
 > Protecting one area usually means not protecting another, at least not immediately or to the same extent.
 
-This simple yet crucial reality shapes modern conservation planning:
+This simple yet crucial reality shapes modern conservation planning because:
 
 - **Biodiversity is unevenly distributed** across the globe.
 - **Threats vary spatially**, affecting some areas more than others.
@@ -37,9 +37,7 @@ These constraints are **not failures**, they are the **starting point** for effe
 
 ## From Spatial Patterns to Decision Challenges
 
-Over the past decades, conservation science has made enormous progress in data availability. Species distribution models, habitat maps, remote sensing products, and global biodiversity databases are now more accessible than ever. However, conservation planners are often challenged not by a lack of data, but by the **difficulty of turning complex, sometimes incomplete data into clear decisions**.
-
-A common first approach is to layer maps on top of one another: visualizing species richness, threat levels, or habitat extent. While informative, this rarely leads to clear choices.
+Over the past decades, conservation science has made enormous progress in data availability. Species distribution models, habitat maps, remote sensing products, and global biodiversity databases are now more accessible than ever. However, conservation planners are often challenged not by the **difficulty of turning complex, sometimes incomplete data into clear decisions**. A common first approach is to layer maps on top of one another to visualize species richness, threat levels, or habitat extent. While informative, this rarely leads to clear choices. 
 
 When multiple features are considered simultaneously, **conflicts emerge**:
 
@@ -55,8 +53,7 @@ The problem lies not in the data alone, but in the **lack of a structured way to
 
 ## Moving Beyond Yes or No: The Need to Prioritize
 
-Many conservation decisions are often seen as simple **binary choices**: protect or not protect, include or exclude. But in reality, conservation planning rarely works this way. Decisions are usually **incremental** — actions happen over time, budgets change, and priorities evolve as new information becomes available. In this dynamic context, **flexibility is key**.
-
+Many conservation decisions are often seen as simple **binary choices**: protect or not protect, include or exclude. But in reality, conservation planning rarely works this way. Decisions are usually **incremental**, i.e. actions happen over time, budgets change, and priorities evolve as new information becomes available. In this dynamic context, **flexibility is key**.
 
 Instead of asking *“Should this area be protected?”* planners often need to ask:
 
@@ -106,7 +103,7 @@ This process allows Zonation to:
 - **Evaluate areas based on how they complement each other**,  
 - **Highlight trade-offs clearly and transparently**.
 
-Because the ranking is continuous, it supports flexible decision-making. Planners can examine different conservation targets without rerunning the entire analysis.
+Because the ranking is continuous, it supports flexible decision-making. 
 
 > In this way, Zonation turns complex spatial data into structured, defensible conservation guidance.
 
@@ -127,7 +124,7 @@ The **ZonationR** package is designed to support the use of Zonation within R wo
 - Run and manage analyses from R  
 - Organize outputs in reproducible workflows  
 
-By bringing Zonation into R, the package makes it easier to teach spatial conservation prioritization, develop transparent analytical pipelines, and document every step of the decision process.
+By bringing Zonation into R, the package makes it easier to develop transparent analytical pipelines, teach spatial conservation prioritization, and document every step of the decision process.
 
 
 
