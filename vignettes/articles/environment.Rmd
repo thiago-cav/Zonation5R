@@ -83,7 +83,7 @@ You can explore these in subsequent vignettes focused on **workflow examples**.
 
 ### Further Reading
 
-> If you are new to spatial conservation prioritization or want a gentle overview to understand the basics, see [*Why spatial conservation prioritization?*](link-to-vignette-x).
+> If you are new to spatial conservation prioritization or want a gentle overview to understand the basics, see [Why Spatial Prioritization](why_spatial_prioritization.html).
 
 Additional resources:
 
