@@ -21,8 +21,10 @@ Imports:
     utils
 Suggests: 
     knitr,
+    mockery,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    withr
 Config/testthat/edition: 3
 URL: https://github.com/thiago-cav/ZonationR, https://thiago-cav.github.io/ZonationR/
 BugReports: https://github.com/thiago-cav/ZonationR/issues
