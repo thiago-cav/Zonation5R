@@ -16,6 +16,7 @@ Imports:
     dplyr,
     ggplot2,
     rlang,
+    terra,
     tidyr,
     utils
 Suggests: 
